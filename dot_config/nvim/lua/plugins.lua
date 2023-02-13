@@ -69,7 +69,16 @@ return require("packer").startup(function(use)
 		end,
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "html", "css", "javascript", "typescript", "python", "lua" },
+				ensure_installed = {
+					"html",
+					"css",
+					"javascript",
+					"typescript",
+					"python",
+					"lua",
+					"markdown",
+					"markdown_inline",
+				},
 				ignore_install = { "d" },
 				auto_install = true,
 				highlight = { enable = true },
@@ -82,6 +91,11 @@ return require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		config = function()
 			require("cmp").setup({
+				snippet = {
+					expand = function(args)
+						require("snippy").expand_snippet(args.body)
+					end,
+				},
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "buffer" },
@@ -250,5 +264,8 @@ return require("packer").startup(function(use)
 		config = function()
 			require("lspsaga").setup({})
 		end,
+	})
+	use({
+		"lewis6991/gitsigns.nvim",
 	})
 end)
