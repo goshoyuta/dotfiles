@@ -237,9 +237,12 @@ return require("packer").startup(function(use)
 				window = {
 					popup = {
 						size = {
-							height = "80%",
-							width = "70%",
+							height = "85%",
+							width = "50%",
 						},
+					},
+					mappings = {
+						["<esc>"] = "close_window",
 					},
 				},
 			})
@@ -262,10 +265,27 @@ return require("packer").startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = function()
-			require("lspsaga").setup({})
+			require("lspsaga").setup({
+				ui = {
+					border = "rounded",
+				},
+			})
 		end,
 	})
 	use({
 		"lewis6991/gitsigns.nvim",
+	})
+	use({
+		"toppair/peek.nvim",
+		run = "deno task --quiet build:fast",
+		config = function()
+			require("peek").setup()
+		end,
+	})
+	use({
+		"ellisonleao/glow.nvim",
+		config = function()
+			require("glow").setup()
+		end,
 	})
 end)
