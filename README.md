@@ -1,14 +1,17 @@
 # Dotfiles maneged with chezmoi
 
 ```sh
-# by root
-pacman -Sy --noconfirm vi git sudo chezmoi
 useradd -m goshoyuta # -m: create home
-passwd goshoyuta
 usermod -aG wheel goshoyuta # -aG: append the user without removing from other groups
-echo "%wheel ALL=(ALL:ALL) ALL" | EDITOR='tee -a' visudo >/dev/null
 
-# by user
-su goshoyuta
+pacman -Sy --needed --noconfirm vi git sudo chezmoi
+
+echo "%wheel ALL=(ALL:ALL) ALL" | EDITOR='tee -a' visudo >/dev/null
+echo "ILoveCandy" | sudo tee -a /etc/pacman.conf >/dev/null
+
+sudo reflector --country Japan,Australia --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+sudo -i -u goshoyuta bash << EOF
 chezmoi init --apply goshoyuta
+EOF
 ```
