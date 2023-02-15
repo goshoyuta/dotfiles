@@ -45,27 +45,28 @@ abbr -a .ahk 'nvim (ghq root)"/github.com/"(whoami)"/win-env/apps/autohotkey/mai
 abbr -a .i 'nvim ~/.dotfiles/install.sh'
 abbr -a .c 'cd (chezmoi source-path)'
 # misc
-abbr -a v 'nvim'
-abbr -a che 'chezmoi'
+abbr -a v nvim
+abbr -a che chezmoi
 abbr -a chere 'chezmoi re-add'
-abbr -a ca 'bat'
-abbr -a ba 'bat'
+abbr -a ca bat
+abbr -a ba bat
 abbr -a du 'dust -r'
 abbr -a df 'df -h'
-abbr -a mutt 'neomutt'
+abbr -a mutt neomutt
 abbr -a yai 'yay -Syu'
-abbr -a yar 'yay -R'
+abbr -a yar 'yay -Rns'
 abbr -a yas 'yay -Ss'
 abbr -a yal 'yay -Q'
-abbr -a tp 'trash-put'
-abbr -a tl 'trash-list'
-abbr -a tr 'trash-restore'
+abbr -a tp trash-put
+abbr -a tl trash-list
+abbr -a tr trash-restore
+abbr -a com comtrya
 # other
 abbr -a rm 'echo "This is not the command you are looking for. Try Trash-Put"; false'
-abbr -a lg 'lazygit'
+abbr -a lg lazygit
 abbr -a wifi 'iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"'
 abbr -a bt 'bluetoothctl power on && bluetoothctl connect 28:FA:19:C8:4C:33'
-abbr -a so 'source'
+abbr -a so source
 abbr -a sofi 'source ~/.config/fish/config.fish && clear'
 abbr -a pip-upgrade-all "pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
 # abbr -a sd 'cd ~ && cd (fd -H -td | fzf --border --layout=reverse)'
