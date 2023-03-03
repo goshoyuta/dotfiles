@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-   x: 10
-   y: 10
+   x: 5
+   y: 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -112,7 +112,7 @@ font:
   # Normal (roman) font face
   normal:
     # Font family
-    family: SourceHanCodeJP
+    family: Noto Sans Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -151,7 +151,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 17.0
+  size: 19
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

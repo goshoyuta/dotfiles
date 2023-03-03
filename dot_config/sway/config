@@ -1,8 +1,8 @@
-workspace_layout tabbed
 set $mod Mod4
-font pango:SourceHanCodeJP 12
+workspace_layout tabbed
+font pango:Noto Sans CJK JP 15
+hide_edge_borders smart
 title_align center
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec --no-startup-id dex --autostart --environment i3
@@ -94,16 +94,19 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+for_window [class="^.*"] border pixel 3
 default_border pixel 3
 default_floating_border pixel 3
 
-# class                 border  bground text    indicator child_border
-client.focused          #4e5b83 #4e5b83 #F8F8F2 #4e5b83   #4e5b83
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+set $bg #1e1e1e
+set $fg #d4d4d4
+set $br #36363a
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $br     $br     $fg     $bg       $br
+client.focused_inactive $bg     $bg     $fg     $bg       $bg
+client.unfocused        $bg     $bg     $fg     $bg       $bg
+client.background $bg
 
 bar {
   swaybar_command waybar
@@ -128,6 +131,10 @@ bindsym Mod4+Shift+s exec /usr/share/sway/scripts/grimshot --notify copy area $H
 exec wl-paste -t text --watch clipman store
 bindsym Mod4+v exec $HOME/go/bin/cliphist list | wofi --show dmenu -G insensitive=true | cliphist decode | wl-copy
 
+
+bindsym Mod4+i exec iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"
+bindsym Mod4+shift+q exec shutdown -h now
+
 # bindsym $mod+v exec clipman pick -t wofi
 
 exec --no-startup-id wl-paste --watch cliphist store
@@ -150,4 +157,3 @@ input type:touchpad {
 }
 
 seat * hide_cursor 500
-# output '*' background ~/.dotfiles/assets/calendar-2023.png fit
