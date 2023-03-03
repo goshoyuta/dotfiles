@@ -32,8 +32,6 @@ abbr -a gf 'git fetch'
 abbr -a gc 'git commit'
 abbr -a gcp 'git cherry-pick'
 abbr -a gsw 'git switch'
-
-abbr -a rg 'rg -i'
 # config
 abbr -a .f 'cd ~/.config/fish/ && nvim'
 abbr -a .z 'cd ~/.zsh && nvim * ~/.zshrc'
@@ -46,6 +44,7 @@ abbr -a .i 'nvim ~/.dotfiles/install.sh'
 abbr -a .c 'cd (chezmoi source-path)'
 # misc
 abbr -a v nvim
+abbr -a rg 'rg -i'
 abbr -a che chezmoi
 abbr -a chere 'chezmoi re-add'
 abbr -a ca bat
@@ -53,8 +52,8 @@ abbr -a ba bat
 abbr -a du 'dust -r'
 abbr -a df 'df -h'
 abbr -a mutt neomutt
-abbr -a yai 'yay -Syu'
-abbr -a yar 'yay -Rns'
+abbr -a yai 'yay -S'
+abbr -a yar 'yay -R'
 abbr -a yas 'yay -Ss'
 abbr -a yal 'yay -Q'
 abbr -a tp trash-put
@@ -62,6 +61,11 @@ abbr -a tl trash-list
 abbr -a tr trash-restore
 abbr -a com comtrya
 # other
+abbr -a nba 'nb a'
+abbr -a nbe 'nb e'
+abbr -a nbt 'nb t'
+abbr -a nbd 'nb d'
+abbr -a nbb 'nb b'
 abbr -a rm 'echo "This is not the command you are looking for. Try Trash-Put"; false'
 abbr -a lg lazygit
 abbr -a wifi 'iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"'
