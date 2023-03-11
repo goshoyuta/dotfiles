@@ -1,6 +1,6 @@
 set $mod Mod4
 workspace_layout tabbed
-font pango:Noto Sans CJK JP 15
+font pango:Noto Sans CJK JP 14
 hide_edge_borders smart
 title_align center
 # Start XDG autostart .desktop files using dex. See also
@@ -15,7 +15,7 @@ title_align center
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 # kill focused window
 bindsym $mod+Shift+d kill
 # kill current workspace
@@ -139,7 +139,7 @@ bindsym Mod4+shift+q exec shutdown -h now
 
 exec --no-startup-id wl-paste --watch cliphist store
 exec --no-startup-id mako
-exec --no-startup-id alacritty
+exec --no-startup-id foot
 exec --no-startup-id espanso daemon
 exec --no-startup-id fcitx5
 exec swaymsg "workspace 2; exec google-chrome-stable;"
@@ -157,3 +157,6 @@ input type:touchpad {
 }
 
 seat * hide_cursor 500
+
+# do not focus preview window on open
+no_focus [title="^Peek preview$"]

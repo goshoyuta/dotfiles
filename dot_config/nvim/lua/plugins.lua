@@ -282,6 +282,8 @@ return require("packer").startup(function(use)
 		config = function()
 			require("peek").setup()
 		end,
+		vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {}),
+		vim.api.nvim_create_user_command("PeekClose", require("peek").close, {}),
 	})
 	use({
 		"ellisonleao/glow.nvim",

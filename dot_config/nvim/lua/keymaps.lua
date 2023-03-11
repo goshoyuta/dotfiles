@@ -78,3 +78,6 @@ vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
 vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 vim.keymap.set("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+-- peek
+vim.keymap.set("n", "<leader>po", "<cmd>PeekOpen<CR>")
+vim.keymap.set("n", "<leader>pc", "<cmd>PeekClose<CR>")
