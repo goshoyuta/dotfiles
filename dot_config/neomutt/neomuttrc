@@ -3,7 +3,7 @@ source ~/.config/neomutt/keymaps
 source ~/.config/neomutt/colors
 
 set virtual_spoolfile=yes
-set folder=notmuch-root-folder
+set folder="~/.mail/"
 set nm_default_url="notmuch://$HOME/.mail/"
 set mailcap_path = ~/.config/neomutt/mailcap
 set certificate_file = '~/.neomutt/cache/certificates'
