@@ -1,2 +1,1 @@
-dot_config/nvim/plugin/packer_compiled.lua
-dot_config/chezmoi/private_chezmoistate.boltdb
+~/.config/systemd/user/default.target.wants/
