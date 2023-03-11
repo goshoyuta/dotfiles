@@ -1,0 +1,6 @@
+text/html; iconv -c -f %{charset} -t utf-8 | pandoc -f html -t plain; copiousoutput;
+text/plain; nvim
+image/png; eog %s
+image/jpeg; eog %s
+application/pdf; evince %s
+application/x-pdf; evince %s

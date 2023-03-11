@@ -1,0 +1,58 @@
+# key binding
+bind attach,browser,pager,index      a            noop
+# moving around
+bind pager,attach,browser,index      g            noop
+bind attach,browser,index            gg           first-entry
+bind attach,browser,index            G            last-entry
+bind pager                           gg           top
+bind pager                           G            bottom
+bind pager                           k            previous-line
+bind pager                           j            next-line
+bind attach,browser,pager,index      \CF          next-page
+bind attach,browser,pager,index      \CB          previous-page
+bind attach,browser,pager,index      \Cu          half-up
+bind attach,browser,pager,index      \Cd          half-down
+bind browser,pager                   \Ce          next-line
+bind browser,pager                   \Cy          previous-line
+# reply
+bind pager,index                     r            noop
+bind pager,index                     rr           group-reply
+bind pager,index                     ro           reply      
+# threads
+bind browser,pager,index             N            search-opposite
+bind pager,index                     gt           next-thread
+bind pager,index                     gT           previous-thread
+bind index                           <space>      collapse-thread
+bind index                           za           collapse-all
+# action
+bind attach                          l            view-mailcap
+bind pager,attach                    h            exit
+bind pager                           l            view-attachments
+bind index                           D            delete-message
+bind index                           U            undelete-message
+bind index                           T            toggle-new
+bind index                           L            limit
+bind index                           l            display-message
+bind browser                         l            select-entry
+bind browser                         h            goto-parent
+bind pager,browser                   gg           top-page
+bind pager,browser                   G            bottom-page
+# sidebar mappings
+bind index,pager                     B            sidebar-toggle-visible
+bind index,pager                     \Ck          sidebar-prev
+bind index,pager                     \Cj          sidebar-next
+bind index,pager                     \Cl          sidebar-open
+# global index and pager shortcuts
+bind index,pager                     @            compose-to-sender
+bind index,pager                     D            purge-message
+bind index                           R            sync-mailbox
+# Email completion bindings
+bind editor                          <Tab>        complete-query
+bind editor                          ^T           complete
+# macro
+macro index,pager                    gi           "<change-vfolder>notmuch://?query=tag:inbox<enter>" "go to Inbox"
+macro index,pager                    gs           "<change-vfolder>notmuch://?query=tag:sent<enter>"  "go to Sent"
+macro index,pager                    ga           "<change-vfolder>notmuch://?query=tag:all<enter>"   "go to All"
+macro index                          \\\\         "<vfolder-from-query>"                              "Search mailbox"
+macro index                          a            "<limit>all\n"                                      "show all messages (undo limit)"
+macro index                          A            "<modify-labels-then-hide>-inbox\n<sync-mailbox>"   "Move to Archive"

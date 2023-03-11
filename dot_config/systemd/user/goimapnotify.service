@@ -1,0 +1,11 @@
+[Unit]
+Description=goimapnotify
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/goimapnotify -conf %h/.config/goimapnotify/goimapnotify.conf
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target
