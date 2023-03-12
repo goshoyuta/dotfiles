@@ -130,17 +130,21 @@ bindsym Mod4+Shift+s exec /usr/share/sway/scripts/grimshot --notify copy area $H
 # copy
 exec wl-paste -t text --watch clipman store
 bindsym Mod4+v exec $HOME/go/bin/cliphist list | wofi --show dmenu -G insensitive=true | cliphist decode | wl-copy
-
-
 bindsym Mod4+i exec iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"
 bindsym Mod4+shift+q exec shutdown -h now
+
+exec swayidle -w \
+  timeout 10 'swaylock -f -C ~/.config/swaylock/config' \
+  timeout 1200 'systemctl suspend'
+bindsym Mod4+alt+l exec swaylock -f -C ~/.config/swaylock/config
+
+exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.7
 
 # bindsym $mod+v exec clipman pick -t wofi
 
 exec --no-startup-id wl-paste --watch cliphist store
 exec --no-startup-id mako
 exec --no-startup-id foot
-exec --no-startup-id espanso daemon
 exec --no-startup-id fcitx5
 exec swaymsg "workspace 2; exec google-chrome-stable;"
 
@@ -156,7 +160,7 @@ input type:touchpad {
     pointer_accel 0.2
 }
 
-seat * hide_cursor 500
+seat * hide_cursor 1000
 
 # do not focus preview window on open
 no_focus [title="^Peek preview$"]
