@@ -1,15 +1,26 @@
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	use("ibhagwan/fzf-lua")
-	-- lsp
-	use("neovim/nvim-lspconfig")
-	use({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+	"ibhagwan/fzf-lua",
+	"neovim/nvim-lspconfig",
+	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
@@ -45,8 +56,8 @@ return require("packer").startup(function(use)
 				end,
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			local null_ls = require("null-ls")
@@ -58,11 +69,12 @@ return require("packer").startup(function(use)
 					null_ls.builtins.diagnostics.fish,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.deno_fmt,
+					null_ls.builtins.formatting.beautysh,
 				},
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
@@ -87,8 +99,8 @@ return require("packer").startup(function(use)
 				autotag = { enable = true },
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		config = function()
 			require("cmp").setup({
@@ -124,25 +136,25 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use({
+	},
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	{
 		"folke/trouble.nvim",
 		config = function()
 			require("trouble").setup({})
 		end,
-	})
-	use("nvim-lua/plenary.nvim")
-	use({
+	},
+	"nvim-lua/plenary.nvim",
+	{
 		"lukas-reineke/lsp-format.nvim",
 		config = function()
 			require("lsp-format").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"dcampos/nvim-snippy",
 		config = function()
 			require("snippy").setup({
@@ -154,19 +166,20 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-	use("dcampos/cmp-snippy")
+	},
+	"dcampos/cmp-snippy",
 	-- look
-	use({
+	{
 		"folke/tokyonight.nvim",
 		config = function()
 			require("tokyonight").setup({
 				style = "night",
 			})
+      vim.cmd([[colorscheme tokyonight]])
 		end,
-	})
-	use("kyazdani42/nvim-web-devicons")
-	use({
+	},
+	"kyazdani42/nvim-web-devicons",
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			require("indent_blankline").setup({
@@ -174,43 +187,43 @@ return require("packer").startup(function(use)
 				show_current_context_start = true,
 			})
 		end,
-	})
-	use("onsails/lspkind.nvim")
-	use({
+	},
+	"onsails/lspkind.nvim",
+	{
 		"RRethy/vim-illuminate",
 		config = function()
 			require("illuminate").configure()
 		end,
-	})
+	},
 	-- misc
-	use({
+	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
-	})
-	use("windwp/nvim-ts-autotag")
-	use({
+	},
+	"windwp/nvim-ts-autotag",
+	{
 		"ethanholz/nvim-lastplace",
 		config = function()
 			require("nvim-lastplace").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("nvim-surround").setup()
 		end,
-	})
-	use("zsugabubus/crazy8.nvim") -- auto ts, sw, sts, and et
-	use("sindrets/diffview.nvim")
-	use({
+	},
+	"zsugabubus/crazy8.nvim", -- auto ts, sw, sts, and et,
+	"sindrets/diffview.nvim",
+	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("lualine").setup({
@@ -219,9 +232,9 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-	use("MunifTanjim/nui.nvim")
-	use({
+	},
+	"MunifTanjim/nui.nvim",
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		config = function()
 			require("neo-tree").setup({
@@ -248,21 +261,21 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
 		config = function()
 			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 		end,
-	})
-	use({
+	},
+	{
 		"j-hui/fidget.nvim",
 		config = function()
 			require("fidget").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = function()
@@ -272,26 +285,24 @@ return require("packer").startup(function(use)
 				},
 			})
 		end,
-	})
-	use({
+	},
+	{
 		"lewis6991/gitsigns.nvim",
-	})
-	use({
+	},
+	{
 		"toppair/peek.nvim",
 		run = "deno task --quiet build:fast",
 		config = function()
 			require("peek").setup()
 		end,
-		vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {}),
-		vim.api.nvim_create_user_command("PeekClose", require("peek").close, {}),
-	})
-	use({
+	},
+	{
 		"ellisonleao/glow.nvim",
 		config = function()
 			require("glow").setup()
 		end,
-	})
-	use({
+	},
+	{
 		"gaoDean/autolist.nvim",
 		ft = {
 			"markdown",
@@ -318,5 +329,6 @@ return require("packer").startup(function(use)
 				end,
 			})
 		end,
-	})
-end)
+	},
+	"Vonr/align.nvim",
+})
