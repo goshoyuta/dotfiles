@@ -46,23 +46,15 @@ keymap:
       KEY_F24-I: KEY_8
       KEY_F24-O: KEY_9
       KEY_F24-P: KEY_0
-      KEY_F24-KEY_1: KEY_F1
-      KEY_F24-KEY_2: KEY_F2
-      KEY_F24-KEY_3: KEY_F3
-      KEY_F24-KEY_4: KEY_F4
-      KEY_F24-KEY_5: KEY_F5
-      KEY_F24-KEY_6: KEY_F6
-      KEY_F24-KEY_7: KEY_F7
-      KEY_F24-KEY_8: KEY_F8
-      KEY_F24-KEY_9: KEY_F9
-      KEY_F24-KEY_0: KEY_F10
-      KEY_F24-KEY_MINUS: KEY_F11
-      KEY_F24-KEY_EQUAL: KEY_F12
-  #
-  # - name: Browser
-  #   application:
-  #     only: [Google-chrome, Brave-browser]
-  #   remap:
-  #     # C-M: ENTER
-  #     C-K: UP
-  #     C-J: DOWN
+      KEY_F23-KEY_F24-Q: KEY_F1
+      KEY_F23-KEY_F24-W: KEY_F2
+      KEY_F23-KEY_F24-E: KEY_F3
+      KEY_F23-KEY_F24-R: KEY_F4
+      KEY_F23-KEY_F24-T: KEY_F5
+      KEY_F23-KEY_F24-Y: KEY_F6
+      KEY_F23-KEY_F24-U: KEY_F7
+      KEY_F23-KEY_F24-I: KEY_F8
+      KEY_F23-KEY_F24-O: KEY_F9
+      KEY_F23-KEY_F24-P: KEY_F10
+      KEY_F23-KEY_F24-A: KEY_F11
+      KEY_F23-KEY_F24-S: KEY_F12
