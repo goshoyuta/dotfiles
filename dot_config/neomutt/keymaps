@@ -37,6 +37,7 @@ bind browser                         l            select-entry
 bind browser                         h            goto-parent
 bind pager,browser                   gg           top-page
 bind pager,browser                   G            bottom-page
+bind pager                           W            display-toggle-weed
 # sidebar mappings
 bind index,pager                     B            sidebar-toggle-visible
 bind index,pager                     \Ck          sidebar-prev
