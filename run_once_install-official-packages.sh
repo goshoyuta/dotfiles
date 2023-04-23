@@ -1,42 +1,34 @@
 #!/bin/bash
-#
+
 set -eux
 
-packages=( \
-  alacritty \
-  bat \
-  curl \
-  deno \
-  docker \
-  dust \
-  exa \
-  fd \
-  fish \
-  fisher \
-  fzf \
-  github-cli \
-  jq \
-  lazygit \
-  mako \
-  neovim \
-  nodejs \
-  npm \
-  ntp \
-  openssh \
-  pacman-contrib \
-  python \
-  python-pip \
-  ripgrep \
-  rust \
-  starship \
-  tmux \
-  unzip \
-  waybar \
-  wget \
-  wofi \
-  zip \
+packages=(
+	bat
+	deno
+	docker
+	dust
+	exa
+	fd
+	fzf
+	github-cli
+	golang-go
+	jq
+	lazygit
+	neovim
+	nodejs
+	npm
+	ntp
+	openssh
+	python
+	python-pip
+	ripgrep
+	rust
+	starship
+	tmux
+	unzip
+	zip
 )
 
 for package in ${packages[@]}; do
-  sudo pacman -S --needed --noconfirm $package
+	sudo apt install -y $package
 done

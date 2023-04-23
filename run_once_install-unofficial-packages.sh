@@ -2,24 +2,14 @@
 #
 set -eux
 
-# yay
-cd ~
-sudo pacman -S --needed --noconfirm base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
+go install github.com/x-motemen/ghq@latest
 
-aur_pkgs=( \
-  act \
-  ghq \
-  google-chrome \
-  nkf \
-  otf-source-han-code-jp \
-  rar \
-  spotify-tui \
-  xremap-x11-bin \
+aur_pkgs=(
+	act
+	nkf
+	rar
 )
 
 for aur_pkg in ${aur_pkgs[@]}; do
-  yay -S --needed --noconfirm $aur_pkg
+	yay -S --needed --noconfirm $aur_pkg
 done

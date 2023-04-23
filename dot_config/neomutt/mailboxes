@@ -1,3 +1,0 @@
-virtual-mailboxes "Inbox" "notmuch://?query=tag:inbox"
-virtual-mailboxes "Sent"  "notmuch://?query=tag:sent"
-virtual-mailboxes "All"   "notmuch://?query=tag:all"
