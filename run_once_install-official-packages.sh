@@ -4,10 +4,8 @@ set -eux
 
 packages=(
 	bat
-	deno
 	docker
 	dust
-	exa
 	fd
 	fzf
 	github-cli
@@ -23,7 +21,6 @@ packages=(
 	python-pip
 	ripgrep
 	rust
-	starship
 	tmux
 	unzip
 	zip
