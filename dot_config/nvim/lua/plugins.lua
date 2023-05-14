@@ -25,11 +25,10 @@ require("lazy").setup({
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"bashls",
 					"denols",
 					"lua_ls",
 					"pyright",
-					"sqls",
-					"bashls",
 				},
 			})
 			require("mason-lspconfig").setup_handlers({
@@ -63,14 +62,25 @@ require("lazy").setup({
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.formatting.black,
-					null_ls.builtins.formatting.shfmt,
-					null_ls.builtins.formatting.fish_indent,
 					null_ls.builtins.diagnostics.fish,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.deno_fmt,
 					null_ls.builtins.formatting.beautysh,
+					null_ls.builtins.formatting.black,
+					-- null_ls.builtins.formatting.deno_fmt,
+					null_ls.builtins.formatting.mdformat,
+					null_ls.builtins.formatting.fish_indent,
+					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
+					null_ls.builtins.formatting.stylua,
 				},
+			})
+		end,
+	},
+	{
+		-- auto install formatters bc mason's ensure install don't support
+		"jay-babu/mason-null-ls.nvim",
+		config = function()
+			require("mason-null-ls").setup({
+				ensure_installed = { "sqlfluff" },
 			})
 		end,
 	},
@@ -83,14 +93,14 @@ require("lazy").setup({
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
-					"html",
 					"css",
+					"html",
 					"javascript",
-					"typescript",
-					"python",
 					"lua",
 					"markdown",
 					"markdown_inline",
+					"python",
+					"typescript",
 				},
 				ignore_install = { "d" },
 				auto_install = true,
@@ -175,7 +185,7 @@ require("lazy").setup({
 			require("tokyonight").setup({
 				style = "night",
 			})
-      vim.cmd([[colorscheme tokyonight]])
+			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
 	"kyazdani42/nvim-web-devicons",
@@ -221,7 +231,25 @@ require("lazy").setup({
 			require("nvim-surround").setup()
 		end,
 	},
-	"zsugabubus/crazy8.nvim", -- auto ts, sw, sts, and et,
+	-- "zsugabubus/crazy8.nvim", -- auto ts, sw, sts, and et,
+	{
+		"FotiadisM/tabset.nvim",
+		config = function()
+			require("tabset").setup({
+				defaults = {
+					tabwidth = 4,
+					expandtab = true,
+				},
+			})
+		end,
+	},
+	{
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
+		end,
+	},
+
 	"sindrets/diffview.nvim",
 	{
 		"nvim-lualine/lualine.nvim",
@@ -298,9 +326,8 @@ require("lazy").setup({
 	},
 	{
 		"ellisonleao/glow.nvim",
-		config = function()
-			require("glow").setup()
-		end,
+		config = true,
+		cmd = "Glow",
 	},
 	{
 		"gaoDean/autolist.nvim",
@@ -330,5 +357,4 @@ require("lazy").setup({
 			})
 		end,
 	},
-	"Vonr/align.nvim",
 })
