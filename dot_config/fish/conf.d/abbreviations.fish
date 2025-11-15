@@ -49,20 +49,14 @@ abbr -a v nvim
 abbr -a rg 'rg -i'
 abbr -a che chezmoi
 abbr -a chere 'chezmoi re-add'
-abbr -a ca bat
-abbr -a ba bat
 abbr -a du 'dust -r'
-abbr -a df 'df -h'
+abbr -a df 'gdu'
 abbr -a mutt neomutt
-abbr -a yai 'yay -S'
-abbr -a yar 'yay -R'
-abbr -a yas 'yay -Ss'
-abbr -a yal 'yay -Q'
 abbr -a tp trash-put
 abbr -a tl trash-list
 abbr -a tr trash-restore
 abbr -a com comtrya
-# other
+# nb
 abbr -a nba 'nb a'
 abbr -a nbe 'nb e'
 abbr -a nbt 'nb t'
@@ -70,7 +64,9 @@ abbr -a nbd 'nb d'
 abbr -a nbb 'nb b'
 abbr -a nbq 'nb q'
 abbr -a nbta 'nb todo add'
-abbr -a rm 'echo "This is not the command you are looking for. Try Trash-Put"; false'
+
+# other
+abbr -a mu 'neomutt'
 abbr -a lg lazygit
 abbr -a wifi 'iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"'
 abbr -a bt 'bluetoothctl power on && bluetoothctl connect 28:FA:19:C8:4C:33'

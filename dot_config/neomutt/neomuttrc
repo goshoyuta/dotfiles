@@ -1,51 +1,24 @@
-source ~/.config/neomutt/mailboxes
+# source ~/.config/neomutt/mailboxes
 source ~/.config/neomutt/keymaps
 source ~/.config/neomutt/colors
 
-set virtual_spoolfile=yes
-set folder="~/.mail/"
-set nm_default_url="notmuch://$HOME/.mail/"
-set mailcap_path=~/.config/neomutt/mailcap
-set certificate_file='~/.neomutt/cache/certificates'
-set header_cache='~/.neomutt/cache/headers'
-set message_cachedir='~/.neomutt/cache/bodies'
-set sleep_time=0
-set abort_key="<Esc>"
-set charset="utf-8"
-set send_charset="utf-8"
-set editor="nvim"
-set sort=reverse-date-received
-set sort=threads
-set use_threads=reverse sort=date sort_aux=date
-set pager_stop=yes
-#set display_filter="grep -v -e 'Autoview using' -e 'Encoding' -e 'is unsupported (use' -e 'Attachment #1' -e 'Received:' -e 'Thread-' -e 'Message-ID' -e 'References' -e 'In-Reply-To' -e 'Content-Language' -e 'X-MS-H' -e 'x-mailer"
-set display_filter=" grep -v -e 'Autoview using' -e Encoding -e 'is unsupported (use' -e 'Attachment #1' -e '-- Type:' -e '-- Attachment'"
-set move=no
-# smtp config
-set ssl_starttls=yes
-set ssl_use_sslv3=yes
-set ssl_force_tls=yes
-set my_account='y.gosho@t-akiyama.com'
-set from=$my_account
-set realname="Yuta Gosho"
-set include=yes #include original mail in reply
-set smtp_url="smtp://$my_account@outlook.office365.com:587/"
-set smtp_authenticators="oauthbearer:xoauth2"
-set smtp_oauth_refresh_command="/usr/local/bin/mutt_oauth2.py ~/.config/mutt_oauth2/y.gosho@t-akiyama.com.tokens.age"
+set imap_user = "goshoyuta@yandex.com"
+set imap_pass = "qbtgjesxrkbxdgmw"
 
-set query_command="echo && notmuch address %s | fzf --height=10 --query=%s"
-set query_format="%4c %t %-70.70a %-70.70n %?e?(%e)?"
+# Yandex IMAPサーバ
+set folder = "imaps://imap.yandex.com/"
+set spoolfile = "+INBOX"
 
-# view
-set sidebar_visible=yes
-set sidebar_width=`echo $(($(tput cols) * 11 / 100))`
-set sidebar_format="%D%?F? [%n]"
-set date_format="%y-%m-%d %T"
-set my_index_format_pre='set my_col_from=`echo $((30 * ($(tput cols)-35-$sidebar_width) / 100))`; set my_col_subject=`echo $((60 * ($(tput cols)-35-$sidebar_width) / 100))`; set index_format="%6C  %Z  %-$my_col_from.${my_col_from}'
-set my_index_format_post='  %?M?<%M> ?%-$my_col_subject.${my_col_subject}s  %D'
+# SSL設定
+set ssl_starttls = yes
+set ssl_force_tls = yes
 
-auto_view text/html
-alternative_order text/plain text/html
+# ローカルにキャッシュしない設定
+set header_cache = ""
+set message_cachedir = ""
+set certificate_file = "~/.mutt/certificates"
 
-folder-hook .*[sS]ent.* "$my_index_format_pre"t"$my_index_format_post"
-folder-hook ! .*[sS]ent.* "$my_index_format_pre"F"$my_index_format_post"
+# その他おすすめ設定
+set move = no       # サーバ上のメールを勝手に移動しない
+set copy = yes      # 送信済みをコピー
+set imap_keepalive = 900  # 定期的にIDLEで接続維持

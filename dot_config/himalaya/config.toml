@@ -1,0 +1,31 @@
+display-name = "Yuta Gosho"
+downloads-dir = "~/Downloads"
+
+[outlook]
+
+default = true
+# sync = true
+
+email = "y.gosho@t-akiyama.com"
+email-listing-page-size = 25
+signature-delim = "~~\n"
+signature = """
+Best Regards,
+Yuta Gosho
+"""
+
+backend = "imap"
+imap-host = "outlook.office365.com"
+imap-port = 993
+imap-login = "y.gosho@t-akiyama.com"
+imap-passwd-cmd = "pizauth show akiyama"
+imap-ssl = true
+imap-starttls = true
+imap-insecure = true
+
+sender = "smtp"
+smtp-host = "smpt.office365.com"
+smtp-port = 587
+smtp-starttls = true
+smtp-login = "y.gosho@t-akiyama.com"
+smtp-passwd-cmd = "pizauth show akiyama"

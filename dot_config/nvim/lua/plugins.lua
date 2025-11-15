@@ -13,145 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"ibhagwan/fzf-lua",
-	"neovim/nvim-lspconfig",
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"denols",
-					"lua_ls",
-					"pyright",
-					"sqls",
-					"bashls",
-				},
-			})
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
-				["lua_ls"] = function()
-					require("lspconfig").lua_ls.setup({
-						settings = {
-							Lua = {
-								format = {
-									enable = false,
-									defaultConfig = {
-										indent_style = "space",
-										indent_size = "2",
-									},
-								},
-								diagnostics = {
-									globals = { "vim" },
-								},
-							},
-						},
-					})
-				end,
-			})
-		end,
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.black,
-					null_ls.builtins.formatting.shfmt,
-					null_ls.builtins.formatting.fish_indent,
-					null_ls.builtins.diagnostics.fish,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.deno_fmt,
-					null_ls.builtins.formatting.beautysh,
-				},
-			})
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"html",
-					"css",
-					"javascript",
-					"typescript",
-					"python",
-					"lua",
-					"markdown",
-					"markdown_inline",
-				},
-				ignore_install = { "d" },
-				auto_install = true,
-				highlight = { enable = true },
-				indent = { enable = true },
-				autotag = { enable = true },
-			})
-		end,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("cmp").setup({
-				snippet = {
-					expand = function(args)
-						require("snippy").expand_snippet(args.body)
-					end,
-				},
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "buffer" },
-					{ name = "path" },
-					{ name = "cmdline" },
-					{ name = "snippy" },
-				},
-				mapping = {
-					["<C-j>"] = require("cmp").mapping.select_next_item(),
-					["<C-k>"] = require("cmp").mapping.select_prev_item(),
-					["<C-l>"] = require("cmp").mapping.confirm({ select = true }),
-				},
-				formatting = {
-					format = require("lspkind").cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						before = function(entry, vim_item)
-							return vim_item
-						end,
-					}),
-				},
-				experimental = {
-					ghost_text = true,
-				},
-			})
-		end,
-	},
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
 	{
 		"folke/trouble.nvim",
 		config = function()
 			require("trouble").setup({})
-		end,
-	},
-	"nvim-lua/plenary.nvim",
-	{
-		"lukas-reineke/lsp-format.nvim",
-		config = function()
-			require("lsp-format").setup()
 		end,
 	},
 	{
@@ -167,7 +32,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	"dcampos/cmp-snippy",
 	-- look
 	{
 		"folke/tokyonight.nvim",
@@ -175,24 +39,7 @@ require("lazy").setup({
 			require("tokyonight").setup({
 				style = "night",
 			})
-      vim.cmd([[colorscheme tokyonight]])
-		end,
-	},
-	"kyazdani42/nvim-web-devicons",
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({
-				show_current_context = true,
-				show_current_context_start = true,
-			})
-		end,
-	},
-	"onsails/lspkind.nvim",
-	{
-		"RRethy/vim-illuminate",
-		config = function()
-			require("illuminate").configure()
+			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
 	-- misc
@@ -221,7 +68,25 @@ require("lazy").setup({
 			require("nvim-surround").setup()
 		end,
 	},
-	"zsugabubus/crazy8.nvim", -- auto ts, sw, sts, and et,
+	-- "zsugabubus/crazy8.nvim", -- auto ts, sw, sts, and et,
+	{
+		"FotiadisM/tabset.nvim",
+		config = function()
+			require("tabset").setup({
+				defaults = {
+					tabwidth = 4,
+					expandtab = true,
+				},
+			})
+		end,
+	},
+	{
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
+		end,
+	},
+
 	"sindrets/diffview.nvim",
 	{
 		"nvim-lualine/lualine.nvim",
@@ -298,9 +163,8 @@ require("lazy").setup({
 	},
 	{
 		"ellisonleao/glow.nvim",
-		config = function()
-			require("glow").setup()
-		end,
+		config = true,
+		cmd = "Glow",
 	},
 	{
 		"gaoDean/autolist.nvim",
@@ -330,5 +194,4 @@ require("lazy").setup({
 			})
 		end,
 	},
-	"Vonr/align.nvim",
 })

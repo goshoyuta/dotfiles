@@ -1,0 +1,53 @@
+[Data Source]
+DisplayName=yuta.gosho@interia.pl
+Enabled=true
+Parent=5ca4833ad7aa0e515ba9d4c29236639316e2c1a9
+
+[Mail Submission]
+SentFolder=folder://local/Sent
+TransportUid=d7a97aad2f8d2217ec948a7400d6381d3ae37637
+RepliesToOriginFolder=false
+UseSentFolder=true
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://local/Drafts
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=folder://local/Templates
+StartBottom=inconsistent
+TopSignature=inconsistent
+Language=
+
+[Mail Identity]
+Address=yuta.gosho@interia.pl
+Aliases=
+Name=Yuta Gosho
+Organization=
+ReplyTo=
+SignatureUid=none
+
+[Pretty Good Privacy (OpenPGP)]
+AlwaysTrust=false
+EncryptToSelf=true
+KeyId=
+SigningAlgorithm=
+SignByDefault=false
+EncryptByDefault=false
+PreferInline=false
+LocateKeys=true
+SendPublicKey=true
+SendPreferEncrypt=true
+AskSendPublicKey=true
+
+[Message Disposition Notifications]
+ResponsePolicy=ask
+
+[Secure MIME (S/MIME)]
+EncryptionCertificate=
+EncryptByDefault=false
+EncryptToSelf=true
+SigningAlgorithm=
+SigningCertificate=
+SignByDefault=false

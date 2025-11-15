@@ -1,3 +1,5 @@
+# vim:set ft=bash :
+
 set $mod Mod4
 workspace_layout tabbed
 font pango:Noto Sans CJK JP 14
@@ -48,15 +50,15 @@ bindsym $mod+Shift+c reload
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 for_window [class="^.*"] border pixel 3
@@ -74,7 +76,7 @@ client.unfocused        $bg     $bg     $fg     $bg       $bg
 client.background $bg
 
 bar {
-  swaybar_command waybar
+    swaybar_command waybar
 }
 
 # env
@@ -90,19 +92,19 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 
 # screenshot
-bindsym $mod+Shift+s exec /usr/share/sway/scripts/grimshot --notify copy area $HOME/Downloads/screenshot_$(date "+%y%m%d%H%M%S").png
+bindsym $mod+Shift+s exec /usr/sbin/grimshot --notify copy area $HOME/Downloads/screenshot_$(date "+%y%m%d%H%M%S").png
 
 # copy
 exec wl-paste -t text --watch clipman store
 bindsym $mod+v exec $HOME/go/bin/cliphist list | wofi --show dmenu -G insensitive=true | cliphist decode | wl-copy
-bindsym $mod+shift+i exec iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect "Pixel 5"
+bindsym $mod+shift+i exec iwctl station wlan0 disconnect && iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect iPhone
 bindsym $mod+shift+q exec shutdown -h now
 
 # screen lock
-exec swayidle -w \
-  timeout 500 'swaylock -f -C ~/.config/swaylock/config' \
-  timeout 1200 'systemctl suspend'
-bindsym $mod+alt+l exec swaylock -f -C ~/.config/swaylock/config
+# exec swayidle -w \
+#     timeout 500 'swaylock -f -C ~/.config/swaylock/config' \
+#     timeout 1200 'systemctl suspend'
+# bindsym $mod+alt+l exec swaylock -f -C ~/.config/swaylock/config
 
 exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.7
 
@@ -110,9 +112,9 @@ exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.7
 
 exec --no-startup-id wl-paste --watch cliphist store
 exec --no-startup-id mako
-exec --no-startup-id foot
 exec --no-startup-id fcitx5
-exec swaymsg "workspace 2; exec google-chrome-stable;"
+exec swaymsg "workspace 1; exec foot;"
+exec swaymsg "workspace 2; exec brave;"
 
 input type:keyboard {
     repeat_delay 175
@@ -123,10 +125,21 @@ input type:touchpad {
     tap enabled
     dwt enabled
     natural_scroll enabled
-    pointer_accel 0.2
+    pointer_accel 0.25
 }
 
-seat * hide_cursor 1000
+# seat * hide_cursor 1000
+bindsym $mod+Shift+9 exec swaymsg 'seat seat0 hide_cursor 0'
+bindsym $mod+Shift+0 exec swaymsg 'seat seat0 hide_cursor 1000'
 
 # do not focus preview window on open
 no_focus [title="^Peek preview$"]
+
+input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
+    tap enabled
+    dwt disabled
+    drag enabled
+    drag_lock disabled
+    middle_emulation disabled
+    natural_scroll enabled
+}

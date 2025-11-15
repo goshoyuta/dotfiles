@@ -1,0 +1,29 @@
+[Data Source]
+DisplayName=goshoyuta@aol.com
+Enabled=false
+Parent=b8bc1ea83518a06b8513e450b14009685ed91efe
+
+[Mail Submission]
+SentFolder=folder://b8bc1ea83518a06b8513e450b14009685ed91efe/Sent
+TransportUid=e6eb9d0a60a2031c609d0c14706dd93f1259c2b6
+RepliesToOriginFolder=false
+UseSentFolder=true
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://b8bc1ea83518a06b8513e450b14009685ed91efe/Draft
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=folder://local/Templates
+StartBottom=inconsistent
+TopSignature=inconsistent
+Language=
+
+[Mail Identity]
+Address=goshoyuta@aol.com
+Aliases=
+Name=Yuta Gosho
+Organization=
+ReplyTo=
+SignatureUid=none

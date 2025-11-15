@@ -1,6 +1,6 @@
 functions --copy cd standard_cd
 function cd
-    standard_cd $argv; and ls
+    standard_cd $argv; and ll
 end
 
 function __ghq_repository_search -d 'Repository Search'

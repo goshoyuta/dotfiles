@@ -1,0 +1,6 @@
+modmap:
+  - name: Global
+    remap:
+      CapsLock:
+        alone: ESC 
+        held: Ctrl_L

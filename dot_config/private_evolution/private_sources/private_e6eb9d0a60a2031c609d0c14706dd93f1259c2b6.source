@@ -1,0 +1,27 @@
+[Data Source]
+DisplayName=goshoyuta@aol.com
+Enabled=true
+Parent=b8bc1ea83518a06b8513e450b14009685ed91efe
+
+[Authentication]
+Host=smtp.aol.com
+Method=LOGIN
+Port=465
+ProxyUid=system-proxy
+RememberPassword=true
+User=goshoyuta@aol.com
+CredentialName=
+IsExternal=false
+
+[Security]
+Method=ssl-on-alternate-port
+
+[Mail Transport]
+BackendName=smtp
+
+[Smtp Backend]
+ReencodeData=false
+DsnRetFull=false
+DsnNotifySuccess=true
+DsnNotifyFailure=true
+DsnNotifyDelay=true

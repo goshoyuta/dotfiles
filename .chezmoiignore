@@ -1,1 +1,97 @@
-~/.config/systemd/user/default.target.wants/
+# ------------------------------------------------------------
+# 🧠 chezmoi 自身を除外（必須）
+# ------------------------------------------------------------
+.config/chezmoi
+
+# ------------------------------------------------------------
+# ⚙️ キャッシュ・一時ファイル
+# ------------------------------------------------------------
+.cache/
+.local/share/Trash/
+.local/state/
+.bash_history
+.lesshst
+.zsh_history
+
+# ------------------------------------------------------------
+# 🌐 ブラウザやログイン関連（プライバシー重視）
+# ------------------------------------------------------------
+.config/BraveSoftware/
+.config/chromium/
+.config/microsoft-edge/
+.config/mozilla/
+.config/chrome-remote-desktop/
+.config/onedrive/
+.config/qt5ct/
+QtProject.conf
+
+# ------------------------------------------------------------
+# 💻 アプリのローカルデータ（ログ・認証・履歴など）
+# ------------------------------------------------------------
+.config/Code\ -\ OSS/
+.config/Electron/
+.config/LosslessCut/
+.config/spotify-tui/
+.config/vlc/
+.config/pgcli/
+.config/espanso/
+.config/discord/
+.config/zoomus.conf
+.config/libreoffice/
+.config/eog/
+.config/menus/
+.config/dconf/
+.config/gtk-3.0/
+.config/pulse/
+.config/ibus/
+.config/fcitx/
+.config/fcitx5/
+.config/mailctl/
+.config/pizauth/
+.config/pet/
+.config/handlr/
+.config/ghb/
+.config/gh/
+.config/configstore/
+.config/systemd/
+.config/yay/
+.config/yarn/
+.config/go/
+.config/goimapnotify/
+.config/lazygit/
+.config/davmail/
+.config/aacs/
+
+# ------------------------------------------------------------
+# 🧩 パッケージマネージャ系（再生成できる）
+# ------------------------------------------------------------
+.config/pip/
+.config/paru/
+
+# ------------------------------------------------------------
+# 🧰 エディタやIDEのキャッシュ
+# ------------------------------------------------------------
+.config/Code/
+.config/JetBrains/
+.vscode/
+.idea/
+
+# ------------------------------------------------------------
+# 🧑‍💻 同期不要なGUIツール設定（個別環境依存）
+# ------------------------------------------------------------
+.config/gtk-3.0/
+.config/fcitx5/
+.config/fcitx/
+.config/mako/
+.config/menus/
+.config/dconf/
+.config/libreoffice/
+.config/vlc/
+
+# ------------------------------------------------------------
+# 🧪 OS / その他
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.bak

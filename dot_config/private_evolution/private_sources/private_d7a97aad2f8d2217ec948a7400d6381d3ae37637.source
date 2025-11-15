@@ -1,0 +1,27 @@
+[Data Source]
+DisplayName=yuta.gosho@interia.pl
+Enabled=true
+Parent=5ca4833ad7aa0e515ba9d4c29236639316e2c1a9
+
+[Authentication]
+Host=poczta.interia.pl
+Method=LOGIN
+Port=465
+ProxyUid=system-proxy
+RememberPassword=true
+User=yuta.gosho@interia.pl
+CredentialName=
+IsExternal=false
+
+[Security]
+Method=ssl-on-alternate-port
+
+[Mail Transport]
+BackendName=smtp
+
+[Smtp Backend]
+ReencodeData=false
+DsnRetFull=false
+DsnNotifySuccess=true
+DsnNotifyFailure=true
+DsnNotifyDelay=true
