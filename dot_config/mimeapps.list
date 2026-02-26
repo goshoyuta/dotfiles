@@ -1,7 +1,33 @@
-
 [Default Applications]
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/webcal=brave-browser.desktop
-x-scheme-handler/mailto=brave-browser.desktop
+# --- Office系 (LibreOffice) ---
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/msword=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop
+application/vnd.ms-powerpoint=libreoffice-impress.desktop
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
+
+# --- PDF & Web (Brave) ---
+# ※brave-browser.desktop で動かない場合は brave.desktop を試してください
+application/pdf=brave-browser.desktop
+text/html=brave-browser.desktop
+
+# --- デザイン (Inkscape) ---
+# ここを画像で確認した名前に統一します
+image/svg+xml=org.inkscape.Inkscape.desktop
+image/svg=org.inkscape.Inkscape.desktop
+application/illustrator=org.inkscape.Inkscape.desktop
+
+# --- テキスト (Neovim) ---
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+
+# --- 動画 (VLC) ---
+video/mp4=vlc.desktop
+video/x-matroska=vlc.desktop
+video/quicktime=vlc.desktop
+video/x-msvideo=vlc.desktop
+video/*=vlc.desktop

@@ -1,8 +1,11 @@
 # vim:set ft=bash :
 
+# espanso
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 set $mod Mod4
 workspace_layout tabbed
-font pango:Noto Sans CJK JP 14
+font pango:Noto Sans JP 14
 hide_edge_borders smart
 title_align center
 
@@ -16,6 +19,8 @@ bindsym $mod+Shift+a focus parent,kill
 # wofi
 set $menu wofi -G --show drun insensitive=true width=70% height=70% | xargs swaymsg exec --
 bindsym $mod+space exec $menu
+
+bindsym $mod+Shift+space exec ~/.local/bin/hootvoice-toggle.sh
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -93,12 +98,16 @@ bindsym XF86Search exec $menu
 
 # screenshot
 bindsym $mod+Shift+s exec /usr/sbin/grimshot --notify copy area $HOME/Downloads/screenshot_$(date "+%y%m%d%H%M%S").png
+bindsym $mod+Shift+w exec /usr/sbin/grimshot --notify save area $HOME/Downloads/screenshot_$(date "+%y%m%d%H%M%S").png
+bindsym $mod+Shift+f exec /usr/sbin/grimshot --notify copy screen $HOME/Downloads/screenshot_$(date "+%y%m%d%H%M%S").png
 
 # copy
 exec wl-paste -t text --watch clipman store
 bindsym $mod+v exec $HOME/go/bin/cliphist list | wofi --show dmenu -G insensitive=true | cliphist decode | wl-copy
-bindsym $mod+shift+i exec iwctl station wlan0 disconnect && iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect iPhone
+bindsym $mod+shift+i exec iwctl station wlan0 disconnect && iwctl station wlan0 scan && sleep 3 && iwctl station wlan0 connect Pixel_6859
 bindsym $mod+shift+q exec shutdown -h now
+
+bindsym $mod+shift+b exec bluetoothctl connect 70:5A:6F:62:A9:D1
 
 # screen lock
 # exec swayidle -w \
@@ -109,7 +118,6 @@ bindsym $mod+shift+q exec shutdown -h now
 exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.7
 
 # bindsym $mod+v exec clipman pick -t wofi
-
 exec --no-startup-id wl-paste --watch cliphist store
 exec --no-startup-id mako
 exec --no-startup-id fcitx5
@@ -132,6 +140,8 @@ input type:touchpad {
 bindsym $mod+Shift+9 exec swaymsg 'seat seat0 hide_cursor 0'
 bindsym $mod+Shift+0 exec swaymsg 'seat seat0 hide_cursor 1000'
 
+seat * hide_cursor 1000
+
 # do not focus preview window on open
 no_focus [title="^Peek preview$"]
 
@@ -143,3 +153,6 @@ input "1739:52619:SYNA8004:00_06CB:CD8B_Touchpad" {
     middle_emulation disabled
     natural_scroll enabled
 }
+
+# DBusとSystemdにWayland環境を通知する
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

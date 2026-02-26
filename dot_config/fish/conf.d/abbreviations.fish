@@ -18,7 +18,6 @@ abbr -a lato 'exa -lasold --icons'
 abbr -a g git
 abbr -a ga 'git add'
 abbr -a gd 'git diff'
-abbr -a gs 'git status'
 abbr -a gp 'git pull'
 abbr -a gP 'git push'
 abbr -a gb 'git branch'
@@ -44,6 +43,7 @@ abbr -a .t 'nvim ~/.config/tmux/tmux.conf'
 abbr -a .s 'nvim ~/.config/sway/config'
 abbr -a .i 'nvim ~/.dotfiles/install.sh'
 abbr -a .ahk 'nvim (ghq root)"/github.com/"(whoami)"/win-env/apps/autohotkey/main.ahk"'
+abbr -a .w 'nvim ~/.config/wezterm/wezterm.lua"'
 # misc
 abbr -a v nvim
 abbr -a rg 'rg -i'
@@ -65,6 +65,8 @@ abbr -a nbb 'nb b'
 abbr -a nbq 'nb q'
 abbr -a nbta 'nb todo add'
 
+abbr -a ff 'fl'
+
 # other
 abbr -a mu 'neomutt'
 abbr -a lg lazygit
@@ -74,3 +76,5 @@ abbr -a so source
 abbr -a sofi 'source ~/.config/fish/config.fish && clear'
 abbr -a pip-upgrade-all "pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
 # abbr -a sd 'cd ~ && cd (fd -H -td | fzf --border --layout=reverse)'
+
+abbr -a ki kilo
